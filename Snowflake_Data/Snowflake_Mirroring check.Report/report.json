@@ -1,0 +1,69 @@
+{
+  "config": "{\"version\":\"5.69\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY25SU12\",\"version\":{\"visual\":\"2.5.0\",\"report\":\"3.1.0\",\"page\":\"2.3.0\"},\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY25SU12",
+            "path": "BaseThemes/CY25SU12.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "70e4ad50cbf1b2614c92",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"36afa88be1efe80825c8\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":46.93333333333333,\"z\":0,\"width\":243.2,\"height\":137.95555555555555}}],\"singleVisual\":{\"visualType\":\"cardVisual\",\"projections\":{\"Data\":[{\"queryRef\":\"Min(SYED_SCH CUSTOMER.COUNTRY)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"SYED_SCH CUSTOMER\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"COUNTRY\"}},\"Function\":5},\"Name\":\"Min(SYED_SCH CUSTOMER.COUNTRY)\",\"NativeReferenceName\":\"Rows in Customer Table\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"COUNTRY\"}},\"Function\":5}}}]},\"columnProperties\":{\"Min(SYED_SCH CUSTOMER.COUNTRY)\":{\"displayName\":\"Rows in Customer Table\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 137.96,
+          "width": 243.20,
+          "x": 0.00,
+          "y": 46.93,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"40b9d93f4ed1f0db352a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":534.7555555555556,\"y\":56.888888888888886,\"z\":2,\"width\":243.2,\"height\":137.95555555555555}}],\"singleVisual\":{\"visualType\":\"cardVisual\",\"projections\":{\"Data\":[{\"queryRef\":\"CountNonNull(SYED_SCH SALES.CUSTOMER_ID)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"SYED_SCH SALES\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"CUSTOMER_ID\"}},\"Function\":5},\"Name\":\"CountNonNull(SYED_SCH SALES.CUSTOMER_ID)\",\"NativeReferenceName\":\"Rows in Sales Table\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"CUSTOMER_ID\"}},\"Function\":5}}}]},\"columnProperties\":{\"Min(SYED_SCH CUSTOMER.COUNTRY)\":{\"displayName\":\"Rows in Customer Table\"},\"CountNonNull(SYED_SCH SALES.CUSTOMER_ID)\":{\"displayName\":\"Rows in Sales Table\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 137.96,
+          "width": 243.20,
+          "x": 534.76,
+          "y": 56.89,
+          "z": 2.00
+        },
+        {
+          "config": "{\"name\":\"71d481a46a6c710cc9ee\",\"layouts\":[{\"id\":0,\"position\":{\"x\":794.8902626677104,\"y\":87.07718057392759,\"z\":4,\"width\":334.6251653483789,\"height\":75.88154307156547}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"RefreshTable.DataLastRefresh\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"RefreshTable\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"DataLastRefresh\"},\"Name\":\"RefreshTable.DataLastRefresh\",\"NativeReferenceName\":\"DataLastRefresh\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"values\":[{\"properties\":{\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 75.88,
+          "width": 334.63,
+          "x": 794.89,
+          "y": 87.08,
+          "z": 4.00
+        },
+        {
+          "config": "{\"name\":\"fea1fd4e967bb012b67f\",\"layouts\":[{\"id\":0,\"position\":{\"x\":256,\"y\":46.93333333333333,\"z\":1,\"width\":243.2,\"height\":137.95555555555555}}],\"singleVisual\":{\"visualType\":\"cardVisual\",\"projections\":{\"Data\":[{\"queryRef\":\"Min(SYED_SCH PRODUCT.BRAND)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"SYED_SCH PRODUCT\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"BRAND\"}},\"Function\":5},\"Name\":\"Min(SYED_SCH PRODUCT.BRAND)\",\"NativeReferenceName\":\"Rows in Product Table\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"BRAND\"}},\"Function\":5}}}]},\"columnProperties\":{\"Min(SYED_SCH CUSTOMER.COUNTRY)\":{\"displayName\":\"Rows in Customer Table\"},\"Min(SYED_SCH PRODUCT.BRAND)\":{\"displayName\":\"Rows in Product Table\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 137.96,
+          "width": 243.20,
+          "x": 256.00,
+          "y": 46.93,
+          "z": 1.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

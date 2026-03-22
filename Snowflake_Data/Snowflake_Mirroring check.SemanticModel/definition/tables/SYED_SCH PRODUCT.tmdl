@@ -1,0 +1,112 @@
+table 'SYED_SCH PRODUCT'
+	lineageTag: b9daf94c-df33-4b90-8fc1-fcffe08d30e2
+
+	column PRODUCT_ID
+		dataType: double
+		isNullable: false
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 68f264c2-a964-4405-a3bf-ef6859602572
+		summarizeBy: none
+		sourceColumn: PRODUCT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PRODUCT_NAME
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(max)
+		lineageTag: 8a6690a4-4a80-4c62-a7c2-d2f92ce9eb80
+		summarizeBy: none
+		sourceColumn: PRODUCT_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column CATEGORY
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(max)
+		lineageTag: 1100a3b5-5664-4f2e-91a8-8b9ca4208bd5
+		summarizeBy: none
+		sourceColumn: CATEGORY
+
+		annotation SummarizationSetBy = Automatic
+
+	column BRAND
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(max)
+		lineageTag: b268290c-ee76-4864-9c0d-165f3fd8d3c3
+		summarizeBy: none
+		sourceColumn: BRAND
+
+		annotation SummarizationSetBy = Automatic
+
+	column UNIT_PRICE
+		dataType: double
+		isNullable: false
+		sourceProviderType: decimal(10, 2)
+		lineageTag: 6892009b-305e-4e70-860f-64f948fa5e39
+		summarizeBy: sum
+		sourceColumn: UNIT_PRICE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column COST_PRICE
+		dataType: double
+		isNullable: false
+		sourceProviderType: decimal(10, 2)
+		lineageTag: 5949dfca-b9ed-4cae-bd17-38b09b48befc
+		summarizeBy: sum
+		sourceColumn: COST_PRICE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ACTIVE
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		sourceProviderType: bit
+		lineageTag: 5cada7ea-db52-4fec-b67b-32694e6f6c9f
+		summarizeBy: none
+		sourceColumn: ACTIVE
+
+		annotation SummarizationSetBy = Automatic
+
+	column LAUNCH_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: ece2b42d-9993-410e-8d31-05d38fc10d84
+		summarizeBy: none
+		sourceColumn: LAUNCH_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column METADATA$ROW_ID
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(max)
+		lineageTag: 813b1df1-d0d1-4764-91e3-545d5111b7af
+		summarizeBy: none
+		sourceColumn: METADATA$ROW_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'SYED_SCH PRODUCT' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("s4upbqk4pime5ebsio5r7pkbu4-lsgegiujgtvu5ewnsqiue655qy.datawarehouse.fabric.microsoft.com", "SYED_DB"),
+				    SYED_SCH_PRODUCT = Source{[Schema="SYED_SCH",Item="PRODUCT"]}[Data]
+				in
+				    SYED_SCH_PRODUCT
+
+	annotation PBI_ResultType = Table
+

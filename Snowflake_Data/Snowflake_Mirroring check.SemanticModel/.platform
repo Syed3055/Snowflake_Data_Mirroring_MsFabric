@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Snowflake_Mirroring check"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "9bc532bb-f372-a0aa-4708-752438b014f3"
+  }
+}

@@ -1,0 +1,138 @@
+table 'SYED_SCH SALES'
+	lineageTag: 3bf71cb0-1312-4f22-be51-accd78c98fe3
+
+	column SALE_ID
+		dataType: double
+		isNullable: false
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 9837a3d3-1366-498c-8a12-ea6a001e7272
+		summarizeBy: count
+		sourceColumn: SALE_ID
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SALE_DATE
+		dataType: dateTime
+		isNullable: false
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: c3811bbd-32d5-408e-8273-bfbb7445f211
+		summarizeBy: none
+		sourceColumn: SALE_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column CUSTOMER_ID
+		dataType: double
+		isNullable: false
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 86e37708-a651-4309-9361-ef61b828b0f1
+		summarizeBy: none
+		sourceColumn: CUSTOMER_ID
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PRODUCT_ID
+		dataType: double
+		isNullable: false
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 3171a205-51c8-4f53-b987-8462292448f9
+		summarizeBy: none
+		sourceColumn: PRODUCT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QUANTITY
+		dataType: double
+		isNullable: false
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 59584dff-1b5c-4344-bfae-28678bef62f0
+		summarizeBy: sum
+		sourceColumn: QUANTITY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UNIT_PRICE
+		dataType: double
+		isNullable: false
+		sourceProviderType: decimal(10, 2)
+		lineageTag: 1d1e444d-1d56-410c-9f3d-ecbfd7c00686
+		summarizeBy: sum
+		sourceColumn: UNIT_PRICE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DISCOUNT_PCT
+		dataType: double
+		sourceProviderType: decimal(5, 2)
+		lineageTag: 1274ae90-9b56-4b36-8a94-ee637ca5648f
+		summarizeBy: sum
+		sourceColumn: DISCOUNT_PCT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TOTAL_AMOUNT
+		dataType: double
+		isNullable: false
+		sourceProviderType: decimal(12, 2)
+		lineageTag: 9e53cf25-a4bc-4d04-a76f-2636faf7a564
+		summarizeBy: sum
+		sourceColumn: TOTAL_AMOUNT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PAYMENT_METHOD
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: b4d03976-1363-47d9-a9bc-05c2f0b671ba
+		summarizeBy: none
+		sourceColumn: PAYMENT_METHOD
+
+		annotation SummarizationSetBy = Automatic
+
+	column REGION
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 0ce2974f-4f25-4ef2-8452-c6969838c16b
+		summarizeBy: none
+		sourceColumn: REGION
+
+		annotation SummarizationSetBy = Automatic
+
+	column METADATA$ROW_ID
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(max)
+		lineageTag: cefd593f-af32-4614-921f-5da872da14f0
+		summarizeBy: none
+		sourceColumn: METADATA$ROW_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'SYED_SCH SALES' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("s4upbqk4pime5ebsio5r7pkbu4-lsgegiujgtvu5ewnsqiue655qy.datawarehouse.fabric.microsoft.com", "SYED_DB"),
+				    SYED_SCH_SALES = Source{[Schema="SYED_SCH",Item="SALES"]}[Data]
+				in
+				    SYED_SCH_SALES
+
+	annotation PBI_ResultType = Table
+

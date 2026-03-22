@@ -1,0 +1,115 @@
+table 'SYED_SCH CUSTOMER'
+	lineageTag: 11a5c71a-7aff-4acd-8d6c-e56605538992
+
+	column CUSTOMER_ID
+		dataType: double
+		isNullable: false
+		sourceProviderType: decimal(38, 0)
+		lineageTag: d7e02455-89d5-4c86-aa37-c51afdeed95b
+		summarizeBy: none
+		sourceColumn: CUSTOMER_ID
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CUSTOMER_NAME
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(max)
+		lineageTag: c0f50150-1413-44cb-b60a-48dbc0d59105
+		summarizeBy: none
+		sourceColumn: CUSTOMER_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column EMAIL
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(max)
+		lineageTag: 1e12885f-9560-45ee-bda8-3ca6003f4241
+		summarizeBy: none
+		sourceColumn: EMAIL
+
+		annotation SummarizationSetBy = Automatic
+
+	column PHONE
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: f1a637fd-564c-42d7-95f8-837138cc2d75
+		summarizeBy: none
+		sourceColumn: PHONE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CITY
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: a9aa13bc-ce3b-46d4-9e87-f0d53338ed8f
+		summarizeBy: none
+		sourceColumn: CITY
+
+		annotation SummarizationSetBy = Automatic
+
+	column STATE
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 8b3eaed7-cf29-4b84-897c-849dcf8bc646
+		summarizeBy: none
+		sourceColumn: STATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column COUNTRY
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: 2560bd70-06dd-4c7b-9f4f-dadfca5e3301
+		summarizeBy: none
+		sourceColumn: COUNTRY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SEGMENT
+		dataType: string
+		sourceProviderType: varchar(max)
+		lineageTag: cb365366-8c0f-4783-80b2-9becee11d04a
+		summarizeBy: none
+		sourceColumn: SEGMENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column SIGNUP_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 83e83602-d1e2-494a-bbc5-6cb6da012d4b
+		summarizeBy: none
+		sourceColumn: SIGNUP_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column METADATA$ROW_ID
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(max)
+		lineageTag: 6e566c94-84cb-44e9-bd61-5f4cac5a5d34
+		summarizeBy: none
+		sourceColumn: METADATA$ROW_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'SYED_SCH CUSTOMER' = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("s4upbqk4pime5ebsio5r7pkbu4-lsgegiujgtvu5ewnsqiue655qy.datawarehouse.fabric.microsoft.com", "SYED_DB"),
+				    SYED_SCH_CUSTOMER = Source{[Schema="SYED_SCH",Item="CUSTOMER"]}[Data]
+				in
+				    SYED_SCH_CUSTOMER
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

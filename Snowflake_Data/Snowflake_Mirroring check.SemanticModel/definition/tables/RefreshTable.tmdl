@@ -1,0 +1,33 @@
+table RefreshTable
+	lineageTag: 25d6a6be-80ec-480d-9f9c-df0718edb5ca
+
+	column DataLastRefresh
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7356de5f-3405-4d0b-a5ee-186d6d5210bb
+		summarizeBy: none
+		sourceColumn: DataLastRefresh
+
+		variation Variation
+			isDefault
+			relationship: a4431bdb-9ce4-4e20-a1a2-424c6d2f1af8
+			defaultHierarchy: LocalDateTable_515abd43-d853-46bf-b4ee-e53dcec57768.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition RefreshTable = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMlSKjQUA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", Int64.Type}}),
+				    #"Added Custom" = Table.AddColumn(#"Changed Type", "DataLastRefresh", each DateTime.FixedLocalNow()),
+				    #"Removed Columns" = Table.RemoveColumns(#"Added Custom",{"Column1"}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Removed Columns",{{"DataLastRefresh", type datetime}})
+				in
+				    #"Changed Type1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
